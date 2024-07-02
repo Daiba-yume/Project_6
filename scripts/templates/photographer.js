@@ -10,6 +10,12 @@ function photographerTemplate(data) {
   function getUserCardDOM() {
     // Création de l'élément, qui contient les info du photographe
     const article = document.createElement("article");
+    article.setAttribute("data-id", id);
+
+    // Création de l'élément lien qui contiendra l'image et le nom
+    const link = document.createElement("a");
+    link.setAttribute("href", `./photographer.html?id=${id}`);
+    link.setAttribute("aria-label", `Lien vers la page de ${name}`);
 
     // Création de l'élément,
     const img = document.createElement("img");
@@ -19,6 +25,10 @@ function photographerTemplate(data) {
     // Création de l'élément, affiche le nom
     const h2 = document.createElement("h2");
     h2.textContent = name;
+
+    // Ajout de l'image et du nom dans le lien
+    link.appendChild(img);
+    link.appendChild(h2);
 
     // Création de l'élément, affiche la tagline
     const pTagline = document.createElement("p");
@@ -36,8 +46,7 @@ function photographerTemplate(data) {
     pPrice.classList.add("price");
 
     // ajout des élément crées à article
-    article.appendChild(img);
-    article.appendChild(h2);
+    article.appendChild(link);
     article.appendChild(pLocation);
     article.appendChild(pTagline);
     article.appendChild(pPrice);
