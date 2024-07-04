@@ -1,10 +1,9 @@
 // Function qui génère un template de photographe à partir des data
-
 function photographerTemplate(data) {
-  //Extraction des données du photographe à partir de data
+  // Extraction des données du photographe à partir de data
   const { name, portrait, id, tagline, city, country, price } = data;
 
-  //chemin de l'image du photographe
+  // Chemin de l'image du photographe
   const picture = `./assets/photographers/${portrait}`;
 
   function getUserCardDOM() {
@@ -14,7 +13,7 @@ function photographerTemplate(data) {
     link.setAttribute("aria-label", `Lien vers la page de ${name}`);
     link.classList.add("focus-outline"); // Ajoutez une classe pour le style de focus
 
-    // Création de l'élément, qui contient les info du photographe
+    // Création de l'élément, qui contient les infos du photographe
     const article = document.createElement("article");
     article.setAttribute("data-id", id);
 
@@ -41,12 +40,12 @@ function photographerTemplate(data) {
     pLocation.textContent = `${city}, ${country}`;
     pLocation.classList.add("location");
 
-    // Création de l'élément,affiche le prix
+    // Création de l'élément, affiche le prix
     const pPrice = document.createElement("p");
     pPrice.textContent = `${price}€/jour`;
     pPrice.classList.add("price");
 
-    // ajout des élément crées à article
+    // Ajout des éléments créés à article
     article.appendChild(link);
     article.appendChild(pLocation);
     article.appendChild(pTagline);
@@ -59,19 +58,25 @@ function photographerTemplate(data) {
     // Sélection de l'élément avec la classe ".photograph-header" (corrigé en minuscules)
     const headerPhotograph = document.querySelector(".photograph-header");
 
+    // Vérifie que ".photograph-header" existe
+    if (!headerPhotograph) {
+      console.error('Element with class "photograph-header" not found.');
+      return null; // Arrête la fonction si l'élément n'existe pas
+    }
+
     // Création de la balise <section> pour la présentation
     const introSection = document.createElement("section");
     introSection.setAttribute("class", "photograph-intro");
 
-    // Insertion de la balise <section> dans ".photograph-header" (corrigé en minuscules)
+    // Insertion de la balise <section> dans ".photograph-header"
     headerPhotograph.appendChild(introSection);
 
     // Création et insertion des balises pour Nom, Ville/Pays, Tagline
-    const introName = document.createElement("h2"); // Utilisation de <h2> pour le nom
+    const introName = document.createElement("h1"); // Utilisation de <h2> pour le nom
     introName.textContent = `${name}`;
     introSection.appendChild(introName);
 
-    const introCity = document.createElement("p"); // Utilisation de <p> pour Ville/Pays
+    const introCity = document.createElement("h2"); // Utilisation de <p> pour Ville/Pays
     introCity.textContent = `${city}, ${country}`;
     introSection.appendChild(introCity);
 
@@ -86,7 +91,7 @@ function photographerTemplate(data) {
 
     // Création et insertion de l'élément <img> pour la photo de profil
     const introPicture = document.createElement("img");
-    introPicture.setAttribute("class", "picture-profile"); // Utilisation de la classe "picture-profile" (corrigé en minuscules)
+    introPicture.setAttribute("class", "picture-profile"); // Utilisation de la classe "picture-profile"
     introPicture.setAttribute("src", `${picture}`);
     introPicture.setAttribute("alt", `${name}`);
     imgContainer.appendChild(introPicture);
