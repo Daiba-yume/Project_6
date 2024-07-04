@@ -2,7 +2,8 @@
 
 body {
   font-family: "DM Sans", sans-serif;
-  margin: 0;
+  margin: auto;
+  max-width: 1440px;
 }
 
 header {
@@ -16,6 +17,7 @@ header {
 h1 {
   color: #901c1c;
   margin-right: 100px;
+  font-weight: 400;
 }
 
 .logo {
@@ -25,8 +27,8 @@ h1 {
 
 .photographer_section {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 70px;
+  grid-template-columns: repeat(3, 526px);
+  row-gap: 70px;
   margin-top: 100px;
   margin-bottom: 100px;
 }
@@ -41,9 +43,10 @@ h1 {
 }
 
 .photographer_section article h2 {
+  font-weight: 400;
   color: #d3573c;
   font-size: 36px;
-  margin: 5px;
+  margin: 20px 0 0 0;
 }
 
 .photographer_section article img {
@@ -61,13 +64,17 @@ h1 {
 
 .location {
   color: #901c1c;
+  margin: 0;
+  font-size: 18px;
 }
 
 .tagline {
-  margin: 3px;
+  margin: 3px 0 0 0;
+  font-size: 12px;
 }
 
 .price {
   color: #757575;
-  margin: 3px;
+  margin: 3px 0 0 0;
+  font-size: 12px;
 }
