@@ -1,10 +1,10 @@
 // Function qui génère un template de photographe à partir des data
 
 function photographerTemplate(data) {
-  //Extraction des données du Picturegraphe à partir de data
+  //Extraction des données du photographe à partir de data
   const { name, portrait, id, tagline, city, country, price } = data;
 
-  //chemin de l'image du photoegraphe
+  //chemin de l'image du photographe
   const picture = `./assets/photographers/${portrait}`;
 
   function getUserCardDOM() {
@@ -14,11 +14,11 @@ function photographerTemplate(data) {
     link.setAttribute("aria-label", `Lien vers la page de ${name}`);
     link.classList.add("focus-outline"); // Ajoutez une classe pour le style de focus
 
-    // Création de l'élément, qui contient les info du Picturegraphe
+    // Création de l'élément, qui contient les info du photographe
     const article = document.createElement("article");
     article.setAttribute("data-id", id);
 
-    // Création de l'élément Picture profil
+    // Création de l'élément photo profil
     const img = document.createElement("img");
     img.setAttribute("src", picture);
     img.setAttribute("alt", name);
@@ -56,17 +56,17 @@ function photographerTemplate(data) {
   }
 
   function getUserHeaderDom() {
-    // Sélection de l'élément avec la classe ".Photograph-header"
+    // Sélection de l'élément avec la classe ".photograph-header" (corrigé en minuscules)
     const headerPhotograph = document.querySelector(".photograph-header");
 
     // Création de la balise <section> pour la présentation
     const introSection = document.createElement("section");
     introSection.setAttribute("class", "photograph-intro");
 
-    // Insertion de la balise <section> dans ".Photograph-header"
-    headerPicturegraph.appendChild(introSection);
+    // Insertion de la balise <section> dans ".photograph-header" (corrigé en minuscules)
+    headerPhotograph.appendChild(introSection);
 
-    // Création et insertion des balises pour Nom, Ville/Pays, Tag
+    // Création et insertion des balises pour Nom, Ville/Pays, Tagline
     const introName = document.createElement("h2"); // Utilisation de <h2> pour le nom
     introName.textContent = `${name}`;
     introSection.appendChild(introName);
@@ -75,23 +75,23 @@ function photographerTemplate(data) {
     introCity.textContent = `${city}, ${country}`;
     introSection.appendChild(introCity);
 
-    const introTagline = document.createElement("p"); // Utilisation de <p> pour le Tag
+    const introTagline = document.createElement("p"); // Utilisation de <p> pour la Tagline
     introTagline.textContent = `${tagline}`;
     introSection.appendChild(introTagline);
 
     // Insertion de la balise <div> pour contenir la photo de profil
     const imgContainer = document.createElement("div");
-    imgContainer.setAttribute("class", "img-container");
-    headerPicturegraph.appendChild(imgContainer);
+    imgContainer.setAttribute("class", "img-container"); // Utilisation de la classe "img-container"
+    headerPhotograph.appendChild(imgContainer);
 
     // Création et insertion de l'élément <img> pour la photo de profil
     const introPicture = document.createElement("img");
-    introPicture.setAttribute("class", "picture-profil");
+    introPicture.setAttribute("class", "picture-profile"); // Utilisation de la classe "picture-profile" (corrigé en minuscules)
     introPicture.setAttribute("src", `${picture}`);
     introPicture.setAttribute("alt", `${name}`);
     imgContainer.appendChild(introPicture);
 
-    // Retourne l'élément .Photograph-header modifié
+    // Retourne l'élément .photograph-header modifié
     return headerPhotograph;
   }
 

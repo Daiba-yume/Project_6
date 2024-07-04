@@ -1,11 +1,10 @@
 // Prend l'ID utilisé dans la search bar :
 const params = new URLSearchParams(window.location.search);
-const selectedArtist = params.get("id");
-// Définition globale : photographer + photographerMedia
-let photographer;
-let photographerMedia = [];
+const selectedPhotographer = params.get("id");
 
-// Photographes sélectionnés depuis le .JSON :
+let photographer;
+
+// Photographes sélectionnés depuis les datas:
 async function getPhotographers() {
   const response = await fetch("./data/photographers.json");
   const photographers = await response.json();
@@ -16,10 +15,10 @@ async function getPhotographers() {
 function filterPhotographerById(photographers) {
   // Reprend globale "photographer" pour match "photographers" avec ID sélectionné PUIS index[0] car 1 seul artiste.
   photographer = photographers.filter(
-    (element) => element.id == selectedArtist
+    (element) => element.id == selectedPhotographer
   )[0];
   // On envoie les données filtrées au Factory
-  const photographerModel = photographerFactory(photographer);
+  const photographerModel = photographerTemplate(photographer);
   // Ces données passent ensuite vers la fonction getUserHeaderDOM()
   const page = photographerModel.getUserHeaderDOM();
   // Avant d'être assemblées vers la balise <main>
