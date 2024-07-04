@@ -1,16 +1,16 @@
-// Function qui génère un template de Picturegraphe à partir des data
+// Function qui génère un template de photographe à partir des data
 
-function PicturegrapherTemplate(data) {
+function photographerTemplate(data) {
   //Extraction des données du Picturegraphe à partir de data
   const { name, portrait, id, tagline, city, country, price } = data;
 
-  //chemin de l'image du Picturegraphe
-  const picture = `./assets/Picturegraphers/${portrait}`;
+  //chemin de l'image du photoegraphe
+  const picture = `./assets/photographers/${portrait}`;
 
   function getUserCardDOM() {
     // Création de l'élément lien qui contiendra l'image et le nom
     const link = document.createElement("a");
-    link.setAttribute("href", `./Picturegrapher.html?id=${id}`);
+    link.setAttribute("href", `./photographer.html?id=${id}`);
     link.setAttribute("aria-label", `Lien vers la page de ${name}`);
     link.classList.add("focus-outline"); // Ajoutez une classe pour le style de focus
 
@@ -52,12 +52,12 @@ function PicturegrapherTemplate(data) {
     article.appendChild(pTagline);
     article.appendChild(pPrice);
 
-    return link;
+    return article;
   }
 
   function getUserHeaderDom() {
     // Sélection de l'élément avec la classe ".Photograph-header"
-    const headerPhotograph = document.querySelector(".Photograph-header");
+    const headerPhotograph = document.querySelector(".photograph-header");
 
     // Création de la balise <section> pour la présentation
     const introSection = document.createElement("section");

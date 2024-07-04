@@ -1,1 +1,1 @@
-
+function getMediaCardDom() {}
