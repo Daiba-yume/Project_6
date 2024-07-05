@@ -56,41 +56,26 @@ async function filterPhotographerById() {
     const photographerModel = photographerTemplate(photographer);
 
     // Génère l'en-tête de la page du photographe
-    const page = photographerModel.getUserHeaderDom();
+    const headerPhotographer = photographerModel.getUserHeaderDom();
+    document
+      .querySelector(".photograph-header")
+      .appendChild(headerPhotographer);
 
-    // Vérifie si l'en-tête a été générée correctement
-    if (page) {
-      const mainSection = document.getElementById("main");
+    const photographMedias = document.querySelector(".photograph-medias");
 
-      // Ajoute l'en-tête à la section principale de la page
-      mainSection.appendChild(page);
+    // Filtre les médias par ID du photographe et les ajoute à la section des médias
+    media
+      .filter((item) => item.photographerId == selectedPhotographerId)
+      .forEach((item) => {
+        item = { ...item, name: photographer.name };
+        const mediaItem = mediaFactory(item);
+        photographMedias.appendChild(mediaItem.getMediaCardDOM());
+      });
 
-      // Crée une section pour les médias du photographe
-      const mediaSection = document.createElement("div");
-      mediaSection.classList.add("media-section");
-
-      // Ajoute la section des médias à la section principale
-      mainSection.appendChild(mediaSection);
-
-      // Filtre les médias par ID du photographe et les ajoute à la section des médias
-      media
-        .filter((item) => item.photographerId == selectedPhotographerId)
-        .forEach((item) => {
-          const mediaItem = mediaFactory(item);
-          mediaSection.appendChild(mediaItem.getMediaCardDOM());
-        });
-
-      // Crée un conteneur pour afficher le tarif journalier du photographe
-      const priceContainer = document.createElement("div");
-      priceContainer.classList.add("price-container");
-      priceContainer.innerHTML = `<p>Tarif journalier: ${photographer.price}€/jour</p>`;
-
-      // Ajoute le conteneur de tarif journalier à la section principale
-      mainSection.appendChild(priceContainer);
-    } else {
-      // Log une erreur si l'en-tête n'a pas pu être générée
-      console.error("Failed to get header DOM.");
-    }
+    // mettre à jour le prix dns le DOM
+    document.querySelector(
+      ".price-container"
+    ).innerHTML = `<p>Tarif journalier: ${photographer.price}€/jour</p>`;
   } catch (error) {
     // Log l'erreur en cas de problème lors du filtrage du photographe
     console.error("Error filtering photographer:", error);

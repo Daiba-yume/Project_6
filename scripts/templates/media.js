@@ -1,9 +1,9 @@
 function mediaFactory(data) {
   // Extraction des données
-  const { title, image, video, likes } = data;
-  const imageSource = `./Sample Photos${image}`;
-  const videoSource = `./Sample Photos${video}`;
-
+  const { title, name, image, video, likes } = data;
+  const imageSource = `./SamplePhotos/${name.split(" ")[0]}/${image}`;
+  const videoSource = `./SamplePhotos/${name.split(" ")[0]}/${video}`;
+  console.log(name.split(" ")[0]);
   // Crée et retourne un élément de carte média
   function getMediaCardDOM() {
     // Création de la carte média

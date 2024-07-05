@@ -55,34 +55,32 @@ function photographerTemplate(data) {
   }
 
   function getUserHeaderDom() {
-    // Sélection de l'élément avec la classe ".photograph-header" (corrigé en minuscules)
-    const headerPhotograph = document.querySelector(".photograph-header");
-
-    // Vérifie que ".photograph-header" existe
-    if (!headerPhotograph) {
-      console.error('Element with class "photograph-header" not found.');
-      return null; // Arrête la fonction si l'élément n'existe pas
-    }
-
     // Création de la balise <section> pour la présentation
-    const introSection = document.createElement("section");
-    introSection.setAttribute("class", "photograph-intro");
+    const headerPhotograph = document.createElement("div");
+    headerPhotograph.setAttribute("class", "headerPhotograph");
 
-    // Insertion de la balise <section> dans ".photograph-header"
-    headerPhotograph.appendChild(introSection);
+    const details = document.createElement("div");
+    details.setAttribute("class", "photograph-intro");
+    headerPhotograph.appendChild(details);
 
     // Création et insertion des balises pour Nom, Ville/Pays, Tagline
     const introName = document.createElement("h1"); // Utilisation de <h2> pour le nom
     introName.textContent = `${name}`;
-    introSection.appendChild(introName);
+    details.appendChild(introName);
 
     const introCity = document.createElement("h2"); // Utilisation de <p> pour Ville/Pays
     introCity.textContent = `${city}, ${country}`;
-    introSection.appendChild(introCity);
+    details.appendChild(introCity);
 
     const introTagline = document.createElement("p"); // Utilisation de <p> pour la Tagline
     introTagline.textContent = `${tagline}`;
-    introSection.appendChild(introTagline);
+    details.appendChild(introTagline);
+
+    const buttonContact = document.createElement("button");
+    buttonContact.classList.add("contact_button");
+    buttonContact.setAttribute("onclick", "displayModal()");
+    buttonContact.textContent = "Contactez-moi";
+    headerPhotograph.appendChild(buttonContact);
 
     // Insertion de la balise <div> pour contenir la photo de profil
     const imgContainer = document.createElement("div");
