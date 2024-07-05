@@ -1,4 +1,5 @@
-// Récupère les données des photographes
+// scripts/pages/photographer.js
+
 async function getPhotographers() {
   try {
     const response = await fetch("./data/photographers.json");
@@ -6,24 +7,24 @@ async function getPhotographers() {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const data = await response.json();
-
-    // Vérifie que les photographes sont bien un tableau dans data.photographers
     if (!Array.isArray(data.photographers)) {
       throw new Error("Expected an array of photographers.");
     }
-
-    return data.photographers;
+    return data;
   } catch (error) {
     console.error("Error fetching or parsing photographers:", error);
-    return []; // Retourne un tableau vide en cas d'erreur
+    return [];
   }
 }
 
-// Filtrer le photographe par ID et afficher le header
+function getSelectedPhotographerIdFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("id");
+}
+
 async function filterPhotographerById() {
   try {
-    const photographers = await getPhotographers();
-
+    const { photographers, media } = await getPhotographers();
     const selectedPhotographerId = getSelectedPhotographerIdFromURL();
     const photographer = photographers.find(
       (element) => element.id == selectedPhotographerId
@@ -40,6 +41,24 @@ async function filterPhotographerById() {
     if (page) {
       const mainSection = document.getElementById("main");
       mainSection.appendChild(page);
+
+      // Affichage des médias du photographe
+      const mediaSection = document.createElement("div");
+      mediaSection.classList.add("media-section");
+      mainSection.appendChild(mediaSection);
+
+      media
+        .filter((item) => item.photographerId == selectedPhotographerId)
+        .forEach((item) => {
+          const mediaItem = mediaFactory(item);
+          mediaSection.appendChild(mediaItem.getMediaCardDOM());
+        });
+
+      // Ajout du tarif journalier
+      const priceContainer = document.createElement("div");
+      priceContainer.classList.add("price-container");
+      priceContainer.innerHTML = `<p>Tarif journalier: ${photographer.price}€/jour</p>`;
+      mainSection.appendChild(priceContainer);
     } else {
       console.error("Failed to get header DOM.");
     }
@@ -48,11 +67,4 @@ async function filterPhotographerById() {
   }
 }
 
-// Fonction utilitaire pour récupérer l'ID du photographe depuis l'URL
-function getSelectedPhotographerIdFromURL() {
-  const params = new URLSearchParams(window.location.search);
-  return params.get("id");
-}
-
-// Appel de la fonction pour filtrer et afficher le photographe
 filterPhotographerById();
