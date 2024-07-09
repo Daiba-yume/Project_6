@@ -35,10 +35,10 @@ function getSelectedPhotographerIdFromURL() {
 
 async function filterPhotographerById() {
   try {
-    // Obtient les données des photographes et des médias
+    // Données des photographes et des médias
     const { photographers, media } = await getPhotographers();
 
-    // Récupère l'ID du photographe sélectionné depuis l'URL
+    // Récupération l'ID du photographe sélectionné depuis l'URL
     const selectedPhotographerId = getSelectedPhotographerIdFromURL();
 
     // Trouve le photographe correspondant à l'ID sélectionné

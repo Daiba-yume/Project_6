@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
   <meta charset="utf-8">
@@ -16,10 +16,25 @@
         aria-label="Cliquez ici pour revenir à la page d'accueil"></a>
   </header>
   <main id="main">
+    <!-- Header photograph -->
     <div class="photograph-header">
     </div>
+
+    <!-- Trie des medias -->
+    <div class="sort-container">
+      <label for="sort-options">Trier par:</label>
+      <select id="sort-options">
+        <option value="popularity">Popularité</option>
+        <option value="date">Date</option>
+        <option value="title">Titre</option>
+      </select>
+    </div>
+
+    <!-- Medias photograph -->
     <div class="photograph-medias">
     </div>
+
+    <!-- Price tarification -->
     <div class="price-container">
     </div>
   </main>
@@ -27,7 +42,7 @@
     <div class="modal">
       <header>
         <h2>Contactez-moi</h2>
-        <img src="assets/icons/close.svg" onclick="closeModal()" />
+        <img src="assets/icons/close.svg" onclick="closeModal()" alt="" />
       </header>
       <form>
         <div>

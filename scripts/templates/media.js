@@ -28,6 +28,7 @@ function mediaFactory(data) {
         const mediaModal = getMediaModalDOM(image);
         toggleCarroussel(mediaModal);
       });
+      mediaImage.setAttribute("alt", `${title}`);
       mediaContainer.appendChild(mediaImage);
     }
 
@@ -46,8 +47,16 @@ function mediaFactory(data) {
         const mediaModal = getMediaModalDOM(video);
         toggleCarroussel(mediaModal);
       });
+      mediaVideo.setAttribute("alt", `${title}`);
       mediaContainer.appendChild(mediaVideo);
     }
+
+    // Ajout d'un texte visible ou d'un attribut aria-label au lien
+    const mediaLinkText = document.createElement("span");
+    mediaLinkText.classList.add("sr-only");
+    mediaLinkText.textContent = `Voir le média: ${title}`;
+    mediaContainer.appendChild(mediaLinkText);
+    mediaContainer.setAttribute("aria-label", `Voir le média: ${title}`);
 
     // Création des informations sur le média
     const mediaInfo = document.createElement("div");
@@ -55,6 +64,7 @@ function mediaFactory(data) {
 
     // Ajout du titre du média
     const mediaTitle = document.createElement("h3");
+    mediaTitle.classList.add("media-title");
     mediaTitle.textContent = title;
     mediaInfo.appendChild(mediaTitle);
 
