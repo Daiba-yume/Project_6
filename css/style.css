@@ -43,6 +43,8 @@ h1 {
 }
 
 .photographer_section article h2 {
+  display: flex;
+  justify-content: center;
   font-weight: 400;
   color: #d3573c;
   font-size: 36px;
