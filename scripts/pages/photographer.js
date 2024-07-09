@@ -61,25 +61,67 @@ async function filterPhotographerById() {
       .querySelector(".photograph-header")
       .appendChild(headerPhotographer);
 
-    const photographMedias = document.querySelector(".photograph-medias");
-
-    // Filtre les médias par ID du photographe et les ajoute à la section des médias
-    media
+    // Filtre les médias du photographe et les affiche
+    let filteredMedia = media
       .filter((item) => item.photographerId == selectedPhotographerId)
-      .forEach((item) => {
-        item = { ...item, name: photographer.name };
-        const mediaItem = mediaFactory(item);
-        photographMedias.appendChild(mediaItem.getMediaCardDOM());
+      .map((item) => ({ ...item, name: photographer.name }));
+
+    displayPhotographerWorks(filteredMedia);
+
+    // Ajoute un écouteur d'événement pour trier les médias
+    document
+      .querySelector("#sort-options")
+      .addEventListener("change", function () {
+        const sortValue = this.value;
+        let sortedMedia;
+        switch (sortValue) {
+          case "popularity":
+            sortedMedia = sortByPopularity(filteredMedia);
+            break;
+          case "date":
+            sortedMedia = sortByDate(filteredMedia);
+            break;
+          case "title":
+            sortedMedia = sortByTitle(filteredMedia);
+            break;
+          default:
+            sortedMedia = filteredMedia;
+        }
+        displayPhotographerWorks(sortedMedia);
       });
 
-    // mettre à jour le prix dns le DOM
+    // Affiche le tarif journalier du photographe
     document.querySelector(
       ".price-container"
     ).innerHTML = `<p>Tarif journalier: ${photographer.price}€/jour</p>`;
   } catch (error) {
-    // Log l'erreur en cas de problème lors du filtrage du photographe
     console.error("Error filtering photographer:", error);
   }
+}
+
+// Trie les médias par popularité (nombre de likes)
+function sortByPopularity(media) {
+  return media.sort((a, b) => b.likes - a.likes);
+}
+
+// Trie les médias par date
+function sortByDate(media) {
+  return media.sort((a, b) => new Date(b.date) - new Date(a.date));
+}
+
+// Trie les médias par titre
+function sortByTitle(media) {
+  return media.sort((a, b) => a.title.localeCompare(b.title));
+}
+
+// Affiche les médias du photographe
+function displayPhotographerWorks(media) {
+  const photographMedias = document.querySelector(".photograph-medias");
+  photographMedias.innerHTML = "";
+  media.forEach((item) => {
+    const mediaItem = mediaFactory(item);
+    photographMedias.appendChild(mediaItem.getMediaCardDOM());
+  });
 }
 
 // Exécute la fonction pour filtrer le photographe par ID

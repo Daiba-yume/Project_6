@@ -57,11 +57,8 @@ a {
 /* Trie*/
 
 .sort-container {
-  size: 18px;
-  line-height: 23.44px;
+  font-size: 18px;
   font-weight: 700;
-  margin-right: 25px;
-  height: 50px;
 }
 
 #sort-options {
@@ -70,6 +67,22 @@ a {
   background-color: #901c1c;
   color: white;
   border: none;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 5px;
+  position: relative;
+}
+
+#sort-options::after {
+  content: "▼";
+  color: white;
+  font-size: 12px;
+  right: 10px;
+  position: absolute;
+}
+
+#sort-options option {
+  padding: 10px;
   font-size: 18px;
   font-weight: 700;
 }
@@ -144,10 +157,8 @@ a {
 .media-title {
   display: flex;
   align-items: center;
-  margin: 0;
   color: #901c1c;
-  height: 50px;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 400;
 }
 
