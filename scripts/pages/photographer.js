@@ -118,9 +118,14 @@ function sortByTitle(media) {
 function displayPhotographerWorks(media) {
   const photographMedias = document.querySelector(".photograph-medias");
   photographMedias.innerHTML = "";
+
+  const modalSlides = document.querySelector(".modalSlides");
+  modalSlides.innerHTML = "";
   media.forEach((item) => {
     const mediaItem = mediaFactory(item);
     photographMedias.appendChild(mediaItem.getMediaCardDOM());
+    modalSlides.appendChild(mediaItem.getMediaLightbox());
+    console.log("create contenue modale");
   });
 }
 

@@ -9,25 +9,21 @@ function mediaFactory(data) {
     // Création de la carte média
     const mediaCard = document.createElement("div");
     mediaCard.classList.add("media-card");
+    mediaCard.addEventListener("click", function (e) {
+      e.preventDefault();
+      openLightbox();
+    });
 
     // Création du conteneur de média
-    const mediaContainer = document.createElement("a");
+    const mediaContainer = document.createElement("div");
     mediaContainer.classList.add("media-container");
-    mediaContainer.setAttribute("href", "#");
 
     // Ajout de l'image si elle existe
     if (image) {
       const mediaImage = document.createElement("img");
       mediaImage.classList.add("media");
       mediaImage.setAttribute("src", imageSource);
-      mediaImage.setAttribute("alt", title);
-      // Ajout d'un événement de clic pour l'image
-      mediaImage.addEventListener("click", function (event) {
-        event.preventDefault();
-        event.stopPropagation();
-        const mediaModal = getMediaModalDOM(image);
-        toggleCarroussel(mediaModal);
-      });
+
       mediaImage.setAttribute("alt", `${title}`);
       mediaContainer.appendChild(mediaImage);
     }
@@ -39,14 +35,7 @@ function mediaFactory(data) {
       mediaVideo.setAttribute("src", videoSource);
       mediaVideo.setAttribute("type", "video/mp4");
       mediaVideo.controls = true;
-      mediaVideo.setAttribute("alt", title);
-      // Ajout d'un événement de clic pour la vidéo
-      mediaVideo.addEventListener("click", function (event) {
-        event.preventDefault();
-        event.stopPropagation();
-        const mediaModal = getMediaModalDOM(video);
-        toggleCarroussel(mediaModal);
-      });
+
       mediaVideo.setAttribute("alt", `${title}`);
       mediaContainer.appendChild(mediaVideo);
     }
@@ -81,5 +70,44 @@ function mediaFactory(data) {
     return mediaCard;
   }
 
-  return { getMediaCardDOM };
+  function getMediaLightbox() {
+    const mySlides = document.createElement("div");
+    mySlides.classList.add("mySlides");
+
+    // Ajout de l'image si elle existe
+    if (image) {
+      const mediaImage = document.createElement("img");
+      mediaImage.classList.add("media");
+      mediaImage.setAttribute("src", imageSource);
+
+      mediaImage.setAttribute("alt", `${title}`);
+      mySlides.appendChild(mediaImage);
+    }
+
+    // Ajout de la vidéo si elle existe
+    if (video) {
+      const mediaVideo = document.createElement("video");
+      mediaVideo.classList.add("media");
+      mediaVideo.setAttribute("src", videoSource);
+      mediaVideo.setAttribute("type", "video/mp4");
+      mediaVideo.controls = true;
+
+      mediaVideo.setAttribute("alt", `${title}`);
+      mySlides.appendChild(mediaVideo);
+    }
+
+    const captionContainer = document.createElement("div");
+    captionContainer.classList.add("caption-container");
+
+    const caption = document.createElement("p");
+    caption.classList.add("caption");
+
+    caption.textContent = title;
+    captionContainer.appendChild(caption);
+    mySlides.appendChild(captionContainer);
+
+    return mySlides;
+  }
+
+  return { getMediaCardDOM, getMediaLightbox };
 }
