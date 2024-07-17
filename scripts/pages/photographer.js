@@ -117,15 +117,26 @@ function sortByTitle(media) {
 // Affiche les médias du photographe
 function displayPhotographerWorks(media) {
   const photographMedias = document.querySelector(".photograph-medias");
-  photographMedias.innerHTML = "";
-
   const modalSlides = document.querySelector(".modalSlides");
+
+  // Vérifiez que les éléments existent avant de les manipuler
+  if (!photographMedias || !modalSlides) {
+    console.error("Photograph medias or modal slides container not found.");
+    return;
+  }
+
+  photographMedias.innerHTML = "";
   modalSlides.innerHTML = "";
+
   media.forEach((item) => {
     const mediaItem = mediaFactory(item);
     photographMedias.appendChild(mediaItem.getMediaCardDOM());
-    modalSlides.appendChild(mediaItem.getMediaLightbox());
-    console.log("create contenue modale");
+
+    const lightboxItem = mediaItem.getMediaLightbox();
+    lightboxItem.classList.add("mySlides"); // Ajoutez la classe mySlides
+    modalSlides.appendChild(lightboxItem);
+
+    console.log("create contenu modale");
   });
 }
 
