@@ -1,3 +1,5 @@
+import { mediaFactory, updateTotalLikes } from "../templates/media.js";
+
 async function getPhotographers() {
   try {
     // Récupère les données depuis le fichier JSON des photographes
@@ -93,7 +95,7 @@ async function filterPhotographerById() {
     // Affiche le tarif journalier du photographe
     document.querySelector(
       ".price-container"
-    ).innerHTML = `<p>Tarif journalier: ${photographer.price}€/jour</p>`;
+    ).innerHTML = `<p>${photographer.price}€/jour</p>`;
   } catch (error) {
     console.error("Error filtering photographer:", error);
   }
@@ -133,11 +135,13 @@ function displayPhotographerWorks(media) {
     photographMedias.appendChild(mediaItem.getMediaCardDOM());
 
     const lightboxItem = mediaItem.getMediaLightbox();
-    lightboxItem.classList.add("mySlides"); // Ajoutez la classe mySlides
+    lightboxItem.classList.add("mySlides");
     modalSlides.appendChild(lightboxItem);
 
     console.log("create contenu modale");
   });
+
+  updateTotalLikes();
 }
 
 // Exécute la fonction pour filtrer le photographe par ID
