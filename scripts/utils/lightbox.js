@@ -1,80 +1,60 @@
-var slideIndex = 0;
+let slideIndex = 0; // Index de la slide actuelle
 
-// Open the Modal
+// Fonction pour ouvrir la lightbox et afficher la slide spécifiée
 function openLightbox() {
   const modal = document.getElementById("myModal");
   if (modal) {
     modal.style.display = "block";
-
-    modal.setAttribute("data-current-slide", slideIndex);
-    showSlides(slideIndex);
-    updateMediaName();
+    showSlides();
   } else {
     console.error("Modal element not found.");
   }
 }
 
-// Close the Modal
+// Fonction pour fermer la lightbox
 function closeLightbox() {
   const modal = document.getElementById("myModal");
   if (modal) {
     modal.style.display = "none";
-    slideIndex = 0; // reinitialisation lors du close
+    slideIndex = 0; // Réinitialisation de l'index de la slide
   } else {
     console.error("Modal element not found.");
   }
 }
 
-// Next/previous controls
+// Fonction pour naviguer entre les slides
 function plusSlides(n) {
-  showSlides((slideIndex += n));
+  slideIndex += n;
+  showSlides();
 }
 
-// Thumbnail image controls
-function currentSlide(n) {
-  openLightbox(n);
-}
-
+// Fonction pour afficher la slide actuelle
 function showSlides() {
   const modal = document.getElementById("myModal");
   const slides = document.querySelectorAll(".mySlides");
   if (modal && slides.length > 0) {
-    const currentSlideIndex =
-      parseInt(modal.getAttribute("data-current-slide")) || 0;
-
-    // Vérifie et ajuste l'index si nécessaire
     if (slideIndex >= slides.length) {
       slideIndex = 0;
     }
     if (slideIndex < 0) {
       slideIndex = slides.length - 1;
     }
-
-    // Cache toutes les slides
     slides.forEach((slide) => {
       slide.style.display = "none";
     });
-
-    // Affiche la slide actuelle
     slides[slideIndex].style.display = "block";
-
-    // Met à jour le nom du média actuellement affiché
-    updateMediaName();
-
-    // Met à jour l'attribut data-current-slide dans le modal
-    modal.setAttribute("data-current-slide", slideIndex);
   } else {
     console.error("Modal or slides element not found.");
   }
 }
 
-function updateMediaName() {
-  const slides = document.querySelectorAll(".mySlides");
-  if (slideIndex >= 1 && slideIndex <= slides.length) {
-    const mediaName = slides[slideIndex - 1].getAttribute("data-media-name");
-    const mediaNameElement = document.querySelector(".media-name");
-    if (mediaNameElement) {
-      mediaNameElement.textContent = mediaName;
-    }
-  }
-}
+// Ouvrir la lightbox au clic sur un média
+document.addEventListener("DOMContentLoaded", function () {
+  const mediaCards = document.querySelectorAll(".media-card");
+  mediaCards.forEach((card, index) => {
+    card.addEventListener("click", function () {
+      slideIndex = index;
+      openLightbox();
+    });
+  });
+});
