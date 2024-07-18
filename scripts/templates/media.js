@@ -58,6 +58,7 @@ export function mediaFactory(data) {
     // Création du bouton de like
     const likeButton = document.createElement("button");
     likeButton.classList.add("like-button");
+    likeButton.setAttribute("aria-label", "Like");
     likeButton.innerHTML = `<i class="fa-solid fa-heart"></i>`;
     likeButton.addEventListener("click", function (e) {
       e.stopPropagation();
