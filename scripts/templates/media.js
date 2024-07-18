@@ -49,6 +49,8 @@ export function mediaFactory(data) {
     mediaTitle.textContent = title;
     mediaInfo.appendChild(mediaTitle);
 
+    // LIKES
+
     // Création du conteneur de like
     const likeContainer = document.createElement("div");
     likeContainer.classList.add("like-container");
@@ -123,6 +125,8 @@ export function mediaFactory(data) {
     return mySlides;
   }
 
+  // BUTTON LIKE
+
   // Fonction pour gérer le clic sur le bouton de like
   function handleLikeClick(mediaId) {
     // Vérification si le média est déjà liké
@@ -159,11 +163,14 @@ export function mediaFactory(data) {
 
 // UPDATE LIKES AND TOTALLIKES
 // Fonction pour mettre à jour le total des likes
+
 export function updateTotalLikes() {
+  console.log("Updating total likes...");
   const photographerLikes = document.querySelector(".photographer-likes");
   if (photographerLikes) {
     const totalLikes = calculateTotalLikes();
-    photographerLikes.textContent = `Total des likes : ${totalLikes}`;
+    console.log("Total likes:", totalLikes);
+    photographerLikes.innerHTML = `<p>${totalLikes} <i class="fa-solid fa-heart"></i></p>`;
   }
 }
 

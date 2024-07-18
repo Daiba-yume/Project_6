@@ -93,9 +93,13 @@ async function filterPhotographerById() {
       });
 
     // Affiche le tarif journalier du photographe
+    console.log("Photographer price:", photographer.price);
     document.querySelector(
       ".price-container"
     ).innerHTML = `<p>${photographer.price}€/jour</p>`;
+
+    // Affiche le total des likes
+    updateTotalLikes();
   } catch (error) {
     console.error("Error filtering photographer:", error);
   }

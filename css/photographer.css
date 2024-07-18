@@ -245,20 +245,47 @@ form input {
 }
 
 /* Partie tarification*/
-.price-container {
+
+.info-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   position: fixed;
-
   width: 376px;
   height: 73px;
   bottom: 0;
   right: 36px;
   border-radius: 5px 5px 0 0;
   background-color: #db8876;
+}
+
+.photographer-likes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10%;
+  z-index: 1;
+  p {
+    font-weight: 600;
+    font-size: 25px;
+  }
+}
+
+.price-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: fixed;
+  width: 376px;
+  height: 73px;
+  bottom: 0;
+  right: 36px;
+  border-radius: 5px 5px 0 0;
+  background-color: #db8876;
+  z-index: 0;
 
   p {
+    margin-left: 40%;
     font-weight: 600;
     font-size: 25px;
   }
