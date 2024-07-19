@@ -1,25 +1,16 @@
 let slideIndex = 0; // Index de la slide actuelle
 
 // Fonction pour ouvrir la lightbox et afficher la slide spécifiée
-function openLightbox() {
+function openLightbox(id) {
   const modal = document.getElementById("myModal");
   if (modal) {
     modal.style.display = "block";
+    setSlideIndex(id);
     showSlides();
   } else {
     console.error("Modal element not found.");
   }
 }
-// Ouvrir la lightbox au clic sur un média
-document.addEventListener("DOMContentLoaded", function () {
-  const mediaCards = document.querySelectorAll(".media-card");
-  mediaCards.forEach((card, index) => {
-    card.addEventListener("click", function () {
-      slideIndex = index;
-      openLightbox();
-    });
-  });
-});
 
 // Fonction pour fermer la lightbox
 function closeLightbox() {
@@ -38,6 +29,18 @@ function plusSlides(n) {
   showSlides();
 }
 
+function setSlideIndex(id) {
+  const listSlides = document.querySelectorAll(".media-card");
+  let pos = 0;
+  listSlides.forEach((element) => {
+    if (element.dataset.id == id) {
+      slideIndex = pos;
+    }
+    pos++;
+  });
+
+  //slideIndex = index;
+}
 // Fonction pour afficher la slide actuelle
 function showSlides() {
   const modal = document.getElementById("myModal");

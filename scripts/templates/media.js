@@ -14,8 +14,12 @@ export function mediaFactory(data) {
     // Création de la carte média
     const mediaCard = document.createElement("div");
     mediaCard.classList.add("media-card");
-    mediaCard.setAttribute("data-media-id", id);
+    mediaCard.setAttribute("data-id", id);
 
+    mediaCard.addEventListener("click", function (e) {
+      e.preventDefault();
+      openLightbox(id);
+    });
     // Création du conteneur de médi
     const mediaContainer = document.createElement("div");
     mediaContainer.classList.add("media-container");
