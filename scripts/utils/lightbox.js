@@ -10,6 +10,16 @@ function openLightbox() {
     console.error("Modal element not found.");
   }
 }
+// Ouvrir la lightbox au clic sur un média
+document.addEventListener("DOMContentLoaded", function () {
+  const mediaCards = document.querySelectorAll(".media-card");
+  mediaCards.forEach((card, index) => {
+    card.addEventListener("click", function () {
+      slideIndex = index;
+      openLightbox();
+    });
+  });
+});
 
 // Fonction pour fermer la lightbox
 function closeLightbox() {
@@ -47,14 +57,3 @@ function showSlides() {
     console.error("Modal or slides element not found.");
   }
 }
-
-// Ouvrir la lightbox au clic sur un média
-document.addEventListener("DOMContentLoaded", function () {
-  const mediaCards = document.querySelectorAll(".media-card");
-  mediaCards.forEach((card, index) => {
-    card.addEventListener("click", function () {
-      slideIndex = index;
-      openLightbox();
-    });
-  });
-});
