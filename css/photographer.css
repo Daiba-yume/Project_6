@@ -145,6 +145,7 @@ a {
 .media-container {
   width: 350px;
   height: 300px;
+  cursor: pointer;
 }
 
 .media-info {
@@ -234,8 +235,8 @@ a {
 .modalContent header img {
   cursor: pointer;
   position: absolute;
-  top: 110px;
-  right: 28%;
+  top: 70px;
+  right: 34%;
 }
 .modalContent header h2 {
   font-size: 60px;

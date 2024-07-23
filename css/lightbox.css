@@ -20,23 +20,24 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 80%;
-  max-width: 1000px;
   height: 80%;
   max-height: 800px;
 }
 
 .modalSlides {
+  height: 770px;
   display: flex;
   justify-content: center;
-  flex-direction: row;
-  width: 600px;
+  width: 1000px;
+  border-radius: 5px;
 }
 
 /* The Close Button */
 .close {
+  z-index: 2000;
   color: #901c1c;
   position: absolute;
+  top: 7%;
   right: 30%;
   font-size: 95px;
 }
@@ -50,18 +51,19 @@
 
 /* Hide the slides by default */
 .mySlides {
-  display: none;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 /* Style pour l'image dans le slide */
-.mySlides img {
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: 100%;
+.mySlides img,
+.mySlides video {
+  width: 80%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Style pour le nom du média */
@@ -92,14 +94,14 @@
 }
 /* Position the "previous button" to the left */
 .prev {
-  left: 10%;
+  left: 20%;
   border-radius: 3px 0 0 3px;
   font-size: 58px;
 }
 
 /* Position the "next button" to the right */
 .next {
-  right: 10%;
+  right: 30%;
   border-radius: 3px 0 0 3px;
   font-size: 58px;
 }

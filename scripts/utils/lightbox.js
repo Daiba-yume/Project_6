@@ -60,3 +60,11 @@ function showSlides() {
     console.error("Modal or slides element not found.");
   }
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const closeButton = document.querySelector(".close");
+  if (closeButton) {
+    closeButton.addEventListener("click", closeLightbox);
+  } else {
+    console.error("Close button not found.");
+  }
+});
