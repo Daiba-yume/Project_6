@@ -214,32 +214,30 @@ a {
   border-radius: 5px;
   cursor: pointer;
 }
-.modal-content {
+.modalContent {
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
   flex-direction: column;
   background-color: #db8876;
   border-radius: 5px;
   padding: 50px 35px 35px 35px;
   margin: auto;
-  /* ------------------------- */
   margin-top: 35px;
   height: 790px;
   width: 600px;
 }
 
-.modal-content header {
+.modalContent header {
   justify-content: space-between;
   width: 100%;
 }
-.modal-content header img {
+.modalContent header img {
   cursor: pointer;
   position: absolute;
-  top: 72px;
-  right: 40px;
+  top: 110px;
+  right: 28%;
 }
-.modal-content header h2 {
+.modalContent header h2 {
   font-size: 60px;
   font-weight: normal;
 }

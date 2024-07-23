@@ -26,13 +26,19 @@
   max-height: 800px;
 }
 
+.modalSlides {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 600px;
+}
+
 /* The Close Button */
 .close {
   color: #901c1c;
-  top: 10px;
-  right: 25px;
-  font-size: 35px;
-  font-weight: bold;
+  position: absolute;
+  right: 30%;
+  font-size: 95px;
 }
 
 .close:hover,
@@ -86,14 +92,16 @@
 }
 /* Position the "previous button" to the left */
 .prev {
-  left: 0;
+  left: 10%;
   border-radius: 3px 0 0 3px;
+  font-size: 58px;
 }
 
 /* Position the "next button" to the right */
 .next {
-  right: 0;
+  right: 10%;
   border-radius: 3px 0 0 3px;
+  font-size: 58px;
 }
 
 /* Caption text */

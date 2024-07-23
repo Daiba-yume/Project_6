@@ -145,7 +145,7 @@ export function mediaFactory(data) {
 
     // Sélection de l'élément DOM correspondant au média
     const mediaElement = document.querySelector(
-      `.media-card[data-media-id="${mediaId}"]`
+      `.media-card[data-id="${mediaId}"]`
     );
 
     // Mise à jour du compteur de likes si l'élément existe
