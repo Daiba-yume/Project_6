@@ -118,8 +118,13 @@ a {
   color: white;
   font-size: 18px;
   font-weight: 700;
+  border-bottom: 1px solid white;
+  margin: 0 10px;
 }
 
+.sort-options li:last-child {
+  border-bottom: none; /* Supprimer la bordure du dernier élément */
+}
 .sort-options li:hover {
   background-color: #d3573c;
 }
