@@ -10,7 +10,6 @@
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
   <title>Fisheye - photographe </title>
 </head>
 
@@ -21,29 +20,33 @@
   </header>
   <main id="main">
     <!-- Header photograph -->
-    <div class="photograph-header">
-    </div>
+    <div class="photograph-header"></div>
 
     <!-- Trie des medias -->
-    <div class="sort-container">
-      <label for="sort-options">Trier par:</label>
-      <select id="sort-options">
-        <option value="popularity">Popularité</option>
-        <option value="date">Date</option>
-        <option value="title">Titre</option>
-      </select>
-    </div>
+    <section class="photograph_medias">
+      <div class="sort-container" aria-label="selecteur de tri des photos">
+        <label for="sort-options">Trier par</label>
+        <div class="select-wrapper">
+          <button class="sort-button" id="sort-button">Popularité<i
+              class="fa-sharp fa-solid fa-angle-down"></i></button>
+          <ul class="sort-options" id="sort-options">
+            <li data-value="popularity">Popularité</li>
+            <li data-value="date">Date</li>
+            <li data-value="title">Titre</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
 
     <!-- Medias photograph -->
-    <div class="photograph-medias">
-    </div>
+    <div class="photograph-medias"></div>
 
     <!-- Price tarification -->
     <div class="info-container">
       <div class="photographer-likes"></div>
       <div class="price-container"></div>
     </div>
-
   </main>
 
   <!-- The Modal/Lightbox -->
@@ -51,16 +54,11 @@
     <span class="close cursor" onclick="closeLightbox()" aria-label="Fermer">&times;</span>
     <div class="modal-content">
       <div class="modalSlides"></div>
-
       <!-- Next/previous controls -->
       <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
       <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-
-
     </div>
   </div>
-
 
   <div id="contact_modal" role="dialog">
     <div class="modalContent">
@@ -76,7 +74,7 @@
           </div>
           <div class="form-contact">
             <label for="last-name">Nom</label>
-            <input id="last-name" type="text" aria-labelledby="Last-µ name" aria-required="true" />
+            <input id="last-name" type="text" aria-labelledby="Last name" aria-required="true" />
           </div>
           <div class="form-contact">
             <label for="email">Email</label>
@@ -91,11 +89,13 @@
       </div>
     </div>
   </div>
+
   <script src="./scripts/templates/photographer.js" defer></script>
   <script type="module" src="./scripts/templates/media.js" defer></script>
   <script type="module" src="./scripts/pages/photographer.js" defer></script>
   <script src="./scripts/utils/contactForm.js"></script>
   <script src="./scripts/utils/lightbox.js" defer></script>
+  <script type="module" src="./scripts/utils/sortDropdown.js" defer></script>
 </body>
 
 </html>
