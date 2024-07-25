@@ -12,31 +12,42 @@ function closeModal() {
   modal.style.display = "none";
 }
 
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && modal.style.display === "block") {
-    modal.style.display = "none";
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contactForm");
+
+  if (form) {
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const userPrenom = document.getElementById("first-name");
+      const userNom = document.getElementById("last-name");
+      const userEmail = document.getElementById("email");
+      const userMessage = document.getElementById("message");
+
+      // Assurez-vous que tous les éléments existent
+      if (userPrenom && userNom && userEmail && userMessage) {
+        console.log(
+          `Merci de m'avoir contacté,
+          ${userPrenom.value} ${userNom.value},
+          Vous trouverez davantage de renseignements à votre adresse email :
+          ${userEmail.value},
+          Et je prendrais en compte chaque élément de votre message :
+          ${userMessage.value}
+          Passez une agréable journée !`
+        );
+
+        // Redirection home
+        window.location.href = `./index.html`;
+
+        // Alerte de confirmation
+        alert("Votre message a été envoyé avec succès !");
+      } else {
+        console.error(
+          "Tous les éléments du formulaire ne sont pas disponibles."
+        );
+      }
+    });
+  } else {
+    console.error("Le formulaire n'a pas été trouvé.");
   }
 });
-
-let userPrenom = document.getElementById("user_prenom");
-let userNom = document.getElementById("user_nom");
-let userEmail = document.getElementById("user_email");
-let userMessage = document.getElementById("user_message");
-
-document
-  .getElementById("contactForm")
-  .addEventListener("submit", function (event) {
-    event.preventDefault();
-    console.log(
-      `Merci de m'avoir contacté,
-        ${userPrenom.value} ${userNom.value},
-        Vous trouverez davantage de renseignements à votre adresse email :
-        ${userEmail.value},
-        Et je prendrais en compte chaque élément de votre message :
-        ${userMessage.value}
-        Passez une agréable journée !`
-    );
-
-    alert("Votre message a été envoyé !");
-    window.location.href = `./index.html`;
-  });
