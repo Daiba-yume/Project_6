@@ -78,7 +78,7 @@ function photographerTemplate(data) {
 
     const buttonContact = document.createElement("button");
     buttonContact.classList.add("contact_button");
-    buttonContact.setAttribute("onclick", "displayModal()");
+    buttonContact.setAttribute("onclick", `displayModal('${name}')`);
     buttonContact.textContent = "Contactez-moi";
     headerPhotograph.appendChild(buttonContact);
 
