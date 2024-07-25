@@ -3,7 +3,7 @@
   display: none;
   position: fixed;
   z-index: 1000;
-  padding-top: 80px;
+  padding-top: 60px;
   left: 0;
   top: 0;
   width: 100%;
@@ -14,7 +14,8 @@
 
 /* Modal Content */
 .modal-content {
-  position: relative;
+  position: absolute;
+  left: 28%;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -37,8 +38,8 @@
   z-index: 2000;
   color: #901c1c;
   position: absolute;
-  top: 7%;
-  right: 30%;
+  top: 4%;
+  right: 26%;
   font-size: 95px;
 }
 
@@ -94,20 +95,21 @@
 }
 /* Position the "previous button" to the left */
 .prev {
-  left: 20%;
+  left: -10%;
   border-radius: 3px 0 0 3px;
   font-size: 58px;
 }
 
 /* Position the "next button" to the right */
 .next {
-  right: 30%;
+  right: 10%;
   border-radius: 3px 0 0 3px;
   font-size: 58px;
 }
 
 /* Caption text */
-.caption-container {
+.caption-container p {
   color: #901c1c;
   font-size: 24px;
+  margin: 5px 0px;
 }
