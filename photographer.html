@@ -24,8 +24,9 @@
 
     <!-- Trie des medias -->
     <section class="photograph_medias">
-      <div class="sort-container" aria-label="selecteur de tri des photos">
-        <label for="sort-options">Trier par</label>
+      <h1 class="visually-hidden">Section de tri des médias</h1>
+      <div class="sort-container">
+        <label for="sort-button">Trier par</label>
         <div class="select-wrapper">
           <button class="sort-button" id="sort-button">Popularité<i
               class="fa-sharp fa-solid fa-angle-down"></i></button>
@@ -50,8 +51,9 @@
   </main>
 
   <!-- The Modal/Lightbox -->
-  <div id="myModal" class="modal" role="dialog" aria-labelledby="lightbox">
-    <span class="close cursor" onclick="closeLightbox()" aria-label="Fermer">&times;</span>
+  <div id="myModal" class="modal" role="dialog">
+    <span id="closeLightboxLabel" class="visually-hidden">Fermer la lightbox</span>
+    <span class="close cursor" onclick="closeLightbox()" aria-labelledby="closeLightboxLabel">&times;</span>
     <div class="modal-content">
       <div class="modalSlides"></div>
       <!-- Next/previous controls -->
@@ -70,19 +72,19 @@
         <form id="contactForm">
           <div class="form-contact">
             <label for="first-name">Prénom</label>
-            <input id="first-name" type="text" aria-labelledby="First name" aria-required="true" />
+            <input id="first-name" type="text" aria-label="First name" aria-required="true" />
           </div>
           <div class="form-contact">
             <label for="last-name">Nom</label>
-            <input id="last-name" type="text" aria-labelledby="Last name" aria-required="true" />
+            <input id="last-name" type="text" aria-label="Last name" aria-required="true" />
           </div>
           <div class="form-contact">
             <label for="email">Email</label>
-            <input id="email" type="email" aria-labelledby="Email" aria-required="true" />
+            <input id="email" type="email" aria-label="Email" aria-required="true" />
           </div>
           <div class="form-contact" id="contact-message">
             <label for="message">Votre message</label>
-            <textarea id="message" aria-labelledby="Your message" aria-required="true"></textarea>
+            <textarea id="message" aria-label="Your message" aria-required="true"></textarea>
           </div>
           <button class="contact-button" type="submit" aria-label="Envoyer">Envoyer</button>
         </form>
@@ -91,11 +93,11 @@
   </div>
 
   <script src="./scripts/templates/photographer.js" defer></script>
-  <script type="module" src="./scripts/templates/media.js" defer></script>
-  <script type="module" src="./scripts/pages/photographer.js" defer></script>
-  <script src="./scripts/utils/contactForm.js"></script>
+  <script type="module" src="./scripts/templates/media.js"></script>
+  <script type="module" src="./scripts/pages/photographer.js"></script>
+  <script src="./scripts/utils/contactForm.js" defer></script>
   <script src="./scripts/utils/lightbox.js" defer></script>
-  <script type="module" src="./scripts/utils/sortDropdown.js" defer></script>
+  <script type="module" src="./scripts/utils/sortDropdown.js"></script>
 </body>
 
 </html>
