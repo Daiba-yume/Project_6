@@ -138,10 +138,7 @@ a {
 }
 
 .sort-options li:last-child {
-  border-bottom: none; /* Supprimer la bordure du dernier élément */
-}
-.sort-options li:hover {
-  background-color: #d3573c;
+  border-bottom: none;
 }
 
 /* lien*/
