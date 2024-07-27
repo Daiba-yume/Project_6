@@ -10,13 +10,15 @@
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <meta name="description"
+    content="Découvrez les travaux d'un photographe professionnel. Explorez des galeries de photos captivantes et contactez-nous pour des séances photo personnalisées." />
   <title>Fisheye - photographe </title>
 </head>
 
 <body>
   <header>
-    <a href="./index.html"><img src="./assets/images/logo.png" class="logo" alt="Fisheye Home page" />
-      aria-label="Cliquez ici pour revenir à la page d'accueil"></a>
+    <a href="./index.html"><img src="./assets/images/logo.png" class="logo" alt="Fisheye Home page"
+        aria-label="Cliquez ici pour revenir à la page d'accueil" /></a>
   </header>
   <main id="main">
     <!-- Header photograph -->
@@ -51,18 +53,18 @@
   </main>
 
   <!-- The Modal/Lightbox -->
-  <div id="myModal" class="modal" role="dialog">
+  <div id="myModal" class="modal" role="dialog" aria-label="Modal Lightbox">
     <span id="closeLightboxLabel" class="visually-hidden">Fermer la lightbox</span>
     <span class="close cursor" onclick="closeLightbox()" aria-labelledby="closeLightboxLabel">&times;</span>
     <div class="modal-content">
       <div class="modalSlides"></div>
       <!-- Next/previous controls -->
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      <div class="prev" onclick="plusSlides(-1)">&#10094;</div>
+      <div class="next" onclick="plusSlides(1)">&#10095;</div>
     </div>
   </div>
 
-  <div id="contact_modal" role="dialog">
+  <div id="contact_modal" role="dialog" aria-label="Modal Contact">
     <div class="modalContent">
       <header>
         <h2 id="header-contact">Contactez-moi <span id="photographer-name"></span></h2>
@@ -72,15 +74,15 @@
         <form id="contactForm">
           <div class="form-contact">
             <label for="first-name">Prénom</label>
-            <input id="first-name" type="text" aria-label="First name" aria-required="true" />
+            <input id="first-name" type="text" aria-label="First name" aria-required="true" autocomplete="given-name" />
           </div>
           <div class="form-contact">
             <label for="last-name">Nom</label>
-            <input id="last-name" type="text" aria-label="Last name" aria-required="true" />
+            <input id="last-name" type="text" aria-label="Last name" aria-required="true" autocomplete="family-name" />
           </div>
           <div class="form-contact">
             <label for="email">Email</label>
-            <input id="email" type="email" aria-label="Email" aria-required="true" />
+            <input id="email" type="email" aria-label="Email" aria-required="true" autocomplete="email" />
           </div>
           <div class="form-contact" id="contact-message">
             <label for="message">Votre message</label>

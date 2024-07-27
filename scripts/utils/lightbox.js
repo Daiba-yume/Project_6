@@ -7,6 +7,7 @@ function openLightbox(id) {
     modal.style.display = "block";
     setSlideIndex(id);
     showSlides();
+    document.addEventListener("keydown", handleKeyDown);
   } else {
     console.error("Modal element not found.");
   }
@@ -18,6 +19,7 @@ function closeLightbox() {
   if (modal) {
     modal.style.display = "none";
     slideIndex = 0; // Réinitialisation de l'index de la slide
+    document.addEventListener("keydown", handleKeyDown);
   } else {
     console.error("Modal element not found.");
   }
@@ -60,6 +62,19 @@ function showSlides() {
     console.error("Modal or slides element not found.");
   }
 }
+
+//  Fonction pour la navigation au clavier
+function handleKeyDown(event) {
+  if (event.key === "ArrowLeft") {
+    plusSlides(-1);
+  } else if (event.key === "ArrowRight") {
+    plusSlides(1);
+  } else if (event.key === "Escape") {
+    closeLightbox();
+  }
+}
+
+// Ecouteur d'event pour la fermeture de la lightbox
 document.addEventListener("DOMContentLoaded", () => {
   const closeButton = document.querySelector(".close");
   if (closeButton) {
