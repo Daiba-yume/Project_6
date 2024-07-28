@@ -30,12 +30,13 @@
       <div class="sort-container">
         <label for="sort-button">Trier par</label>
         <div class="select-wrapper">
-          <button class="sort-button" id="sort-button">Popularité<i
-              class="fa-sharp fa-solid fa-angle-down"></i></button>
+          <button class="sort-button" id="sort-button">
+            <p id="selectedOption">Popularité</p><i class="fa-sharp fa-solid fa-angle-down"></i>
+          </button>
           <ul class="sort-options" id="sort-options">
-            <li data-value="popularity">Popularité</li>
-            <li data-value="date">Date</li>
-            <li data-value="title">Titre</li>
+            <li class="sort-option" data-value="popularity">Popularité</li>
+            <li class="sort-option" data-value="date">Date</li>
+            <li class="sort-option" data-value="title">Titre</li>
           </ul>
         </div>
       </div>

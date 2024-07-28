@@ -13,19 +13,21 @@ document.addEventListener("DOMContentLoaded", function () {
   sortButton.addEventListener("click", function () {
     const isOpen = sortOptions.style.display === "block";
     sortOptions.style.display = isOpen ? "none" : "block";
+    if (!isOpen) {
+      const allOptions = document.querySelectorAll(".sort-option");
+      allOptions.forEach((element) => {
+        if (
+          element.textContent ==
+          document.getElementById("selectedOption").textContent
+        ) {
+          element.style.display = "none";
+        } else {
+          element.style.display = "block";
+        }
+      });
+    }
     sortIcon.classList.toggle("fa-angle-down", isOpen);
     sortIcon.classList.toggle("fa-angle-up", !isOpen);
-  });
-
-  document.addEventListener("click", function (event) {
-    if (
-      !sortButton.contains(event.target) &&
-      !sortOptions.contains(event.target)
-    ) {
-      sortOptions.style.display = "none";
-      sortIcon.classList.add("fa-angle-down");
-      sortIcon.classList.remove("fa-angle-up");
-    }
   });
 
   sortOptions.addEventListener("click", function (event) {
@@ -35,6 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
       sortIcon.classList.add("fa-angle-down");
       sortIcon.classList.remove("fa-angle-up");
       sortMedia(sortValue);
+      document.getElementById("selectedOption").textContent =
+        event.target.textContent;
     }
   });
 

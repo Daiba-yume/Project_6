@@ -89,7 +89,12 @@ a {
 }
 
 .sort-button {
-  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 170px;
+  padding: 10px 20px;
   cursor: pointer;
   background-color: #901c1c;
   color: white;
@@ -97,11 +102,6 @@ a {
   font-size: 18px;
   font-weight: 700;
   border-radius: 5px;
-  position: relative;
-}
-
-.sort-button i {
-  margin-left: 20px;
 }
 
 .sort-button::after {
