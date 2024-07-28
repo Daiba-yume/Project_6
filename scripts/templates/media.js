@@ -20,7 +20,10 @@ export function mediaFactory(data) {
       e.preventDefault();
       openLightbox(id);
     });
-    // Création du conteneur de médi
+
+    mediaCard.setAttribute("tabindex", "0");
+
+    // Création du conteneur de média
     const mediaContainer = document.createElement("div");
     mediaContainer.classList.add("media-container");
 
@@ -63,6 +66,7 @@ export function mediaFactory(data) {
     const likeButton = document.createElement("button");
     likeButton.classList.add("like-button");
     likeButton.setAttribute("aria-label", "Like");
+    likeButton.setAttribute("tabindex", "0");
     likeButton.innerHTML = `<i class="fa-solid fa-heart"></i>`;
     likeButton.addEventListener("click", function (e) {
       e.stopPropagation();

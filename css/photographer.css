@@ -94,23 +94,14 @@ a {
   justify-content: space-between;
   align-items: center;
   width: 170px;
-  padding: 10px 20px;
+  padding: 0px 20px;
   cursor: pointer;
   background-color: #901c1c;
   color: white;
   border: none;
   font-size: 18px;
   font-weight: 700;
-  border-radius: 5px;
-}
-
-.sort-button::after {
-  color: white;
-  font-size: 12px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
+  border-radius: 5px 5px 3px 3px;
 }
 
 .sort-options {
@@ -120,10 +111,10 @@ a {
   left: 0;
   width: 100%;
   background-color: #901c1c;
-  border-radius: 5px;
+  border-radius: 0px 0px 5px 5px;
   list-style: none;
   padding: 0;
-  margin: 5px 0 0;
+  margin: 0;
   z-index: 1000;
 }
 
@@ -133,7 +124,7 @@ a {
   color: white;
   font-size: 18px;
   font-weight: 700;
-  border-bottom: 1px solid white;
+  border-top: 1px solid white;
   margin: 0 10px;
 }
 
