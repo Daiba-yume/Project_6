@@ -1,3 +1,4 @@
+// Affiche la modal de contact
 function displayModal(photographerName) {
   const modal = document.getElementById("contact_modal");
   const photographerNameElement = document.getElementById("photographer-name");
@@ -12,9 +13,11 @@ function closeModal() {
   modal.style.display = "none";
 }
 
+// Gestionnaire de soumission du formulaire
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contactForm");
 
+  // Vérifie que tous les champs existent
   if (form) {
     form.addEventListener("submit", function (event) {
       event.preventDefault();

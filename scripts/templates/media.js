@@ -16,6 +16,19 @@ export function mediaFactory(data) {
     mediaCard.classList.add("media-card");
     mediaCard.setAttribute("data-id", id);
 
+    // Ajout des attributs ARIA et tabindex pour la carte média
+    mediaCard.setAttribute("role", "button");
+    mediaCard.setAttribute("aria-label", `Open lightbox for ${title}`);
+    mediaCard.setAttribute("tabindex", "0");
+
+    // Ajout des gestionnaires d'événements pour la navigation au clavier
+    mediaCard.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openLightbox(id);
+      }
+    });
+
     mediaCard.addEventListener("click", function (e) {
       e.preventDefault();
       openLightbox(id);
@@ -71,6 +84,15 @@ export function mediaFactory(data) {
     likeButton.addEventListener("click", function (e) {
       e.stopPropagation();
       handleLikeClick(id);
+    });
+
+    // Ajout gestionnaire d'événements pour la navigation au clavier
+    likeButton.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        e.stopPropagation(); //  empêche l'ouverture de la lightbox
+        handleLikeClick(id);
+      }
     });
 
     // Affichage du nombre de likes
