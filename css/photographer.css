@@ -94,6 +94,7 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+  width: 160px;
   cursor: pointer;
   background-color: #901c1c;
   color: white;
