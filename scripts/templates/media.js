@@ -1,3 +1,5 @@
+"use strict";
+
 export function mediaFactory(data) {
   // Déstructuration des données pour obtenir les propriétés nécessaires
   const { id, title, name, image, video, likes } = data;
@@ -56,6 +58,24 @@ export function mediaFactory(data) {
       mediaVideo.setAttribute("type", "video/mp4");
       mediaVideo.controls = true;
       mediaVideo.setAttribute("alt", `${title}`);
+      mediaVideo.setAttribute("tabindex", "0");
+
+      // Ajout des gestionnaires d'événements pour la navigation au clavier
+      mediaVideo.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          if (mediaVideo.paused) {
+            mediaVideo.play();
+          } else {
+            mediaVideo.pause();
+          }
+        }
+        if (e.key === "m") {
+          e.preventDefault();
+          mediaVideo.muted = !mediaVideo.muted;
+        }
+      });
+
       mediaContainer.appendChild(mediaVideo);
     }
 
@@ -137,6 +157,23 @@ export function mediaFactory(data) {
       mediaVideo.setAttribute("type", "video/mp4");
       mediaVideo.controls = true;
       mediaVideo.setAttribute("alt", `${title}`);
+
+      // Ajout des gestionnaires d'événements pour la navigation au clavier
+      mediaVideo.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          if (mediaVideo.paused) {
+            mediaVideo.play();
+          } else {
+            mediaVideo.pause();
+          }
+        }
+        if (e.key === "m") {
+          e.preventDefault();
+          mediaVideo.muted = !mediaVideo.muted;
+        }
+      });
+
       mySlides.appendChild(mediaVideo);
     }
 

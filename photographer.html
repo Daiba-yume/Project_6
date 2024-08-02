@@ -18,20 +18,22 @@
 <body>
   <header>
     <a href="./index.html"><img src="./assets/images/logo.png" class="logo" alt="Fisheye Home page"
-        aria-label="Cliquez ici pour revenir à la page d'accueil" /></a>
+        aria-label="Accueil" /></a>
   </header>
   <main id="main">
     <!-- Header photograph -->
-    <div class="photograph-header"></div>
+    <section class="photograph-header">
+      <h1 class="visually-hidden">Section de tri des médias</h1>
+    </section>
 
     <!-- Trie des medias -->
     <section class="photograph_medias">
-      <h1 class="visually-hidden">Section de tri des médias</h1>
+      <h2 class="visually-hidden">Section de tri des médias</h2>
       <div class="sort-container">
         <label for="sort-button">Trier par</label>
         <div class="select-wrapper">
           <button class="sort-button" id="sort-button">
-            <p id="selectedOption">Popularité</p><i class="fa-sharp fa-solid fa-angle-down"></i>
+            <span id="selectedOption">Popularité</span><i class="fa-sharp fa-solid fa-angle-down"></i>
           </button>
           <ul class="sort-options" id="sort-options">
             <li class="sort-option" data-value="popularity" tabindex="0">Popularité</li>
@@ -44,42 +46,44 @@
 
 
     <!-- Medias photograph -->
-    <div class="photograph-medias"></div>
+    <section class="photograph-medias">
+      <h2 class="visually-hidden">photograph medias</h2>
+    </section>
 
     <!-- Price tarification -->
-    <div class="info-container">
+    <aside class="info-container">
       <div class="photographer-likes"></div>
       <div class="price-container"></div>
-    </div>
+    </aside>
   </main>
 
   <!-- The Modal/Lightbox -->
-  <div id="myModal" class="modal" role="dialog" aria-label="Modal Lightbox" tabindex="-1">
+  <div id="myModal" class="modal" role="dialog" aria-label="Lightbox" tabindex="-1">
     <span id="closeLightboxLabel" class="visually-hidden">Fermer la lightbox</span>
-    <span class="close cursor" onclick="closeLightbox()" aria-labelledby="closeLightboxLabel">&times;</span>
+    <button class="close cursor" onclick="closeLightbox()" aria-labelledby="closeLightboxLabel">&times;</button>
     <div class="modal-content">
       <div class="modalSlides"></div>
       <!-- Next/previous controls -->
-      <div class="prev" onclick="plusSlides(-1)">&#10094;</div>
-      <div class="next" onclick="plusSlides(1)">&#10095;</div>
+      <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+      <button class="next" onclick="plusSlides(1)">&#10095;</button>
     </div>
   </div>
 
-  <div id="contact_modal" role="dialog" aria-label="Modal Contact" tabindex="-1">
+  <div id="contact_modal" role="dialog" aria-label="Contact" tabindex="-1">
     <div class="modalContent">
       <header>
         <h2 id="header-contact">Contactez-moi <span id="photographer-name"></span></h2>
-        <img src="assets/icons/close.svg" onclick="closeModal()" alt="close Contact form" tabindex="0" />
+        <img src="assets/icons/close.svg" onclick="closeModal()" alt="Fermer" tabindex="0" />
       </header>
       <div id="form-group">
         <form id="contactForm">
           <div class="form-contact">
             <label for="first-name">Prénom</label>
-            <input id="first-name" type="text" aria-label="First name" aria-required="true" autocomplete="given-name" />
+            <input id="first-name" type="text" aria-label="Prénom" aria-required="true" autocomplete="given-name" />
           </div>
           <div class="form-contact">
             <label for="last-name">Nom</label>
-            <input id="last-name" type="text" aria-label="Last name" aria-required="true" autocomplete="family-name" />
+            <input id="last-name" type="text" aria-label="Nom" aria-required="true" autocomplete="family-name" />
           </div>
           <div class="form-contact">
             <label for="email">Email</label>
@@ -87,7 +91,7 @@
           </div>
           <div class="form-contact" id="contact-message">
             <label for="message">Votre message</label>
-            <textarea id="message" aria-label="Your message" aria-required="true"></textarea>
+            <textarea id="message" aria-label="Message" aria-required="true"></textarea>
           </div>
           <button class="contact-button" type="submit" aria-label="Envoyer">Envoyer</button>
         </form>

@@ -1,7 +1,13 @@
+"use strict";
+
 import { mediaFactory, updateTotalLikes } from "../templates/media.js";
 
 window.filteredMedia = []; // Définir filteredMedia globalement
 
+/**
+ * Récupère les données des photographes depuis un fichier JSON.
+ * Les données des photographes.
+ */
 export async function getPhotographers() {
   try {
     const response = await fetch("./data/photographers.json");
@@ -19,11 +25,17 @@ export async function getPhotographers() {
   }
 }
 
+/**
+ * Récupère l'ID du photographe sélectionné à partir de l'URL.
+ */
 export function getSelectedPhotographerIdFromURL() {
   const params = new URLSearchParams(window.location.search);
   return params.get("id");
 }
 
+/**
+ * Filtre les photographes par ID et affiche les informations du photographe et ses médias.
+ */
 export async function filterPhotographerById() {
   try {
     const { photographers, media } = await getPhotographers();

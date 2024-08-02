@@ -34,6 +34,11 @@
 }
 
 /* The Close Button */
+
+button.close {
+  background: none;
+  border: none;
+}
 .close {
   z-index: 2000;
   color: #901c1c;
@@ -76,6 +81,12 @@
   font-size: 20px;
 }
 
+button.prev,
+button.next {
+  background: none;
+  border: none;
+}
+
 /* Next & previous buttons */
 .prev,
 .next {
@@ -112,4 +123,11 @@
   color: #901c1c;
   font-size: 24px;
   margin: 5px 0px;
+}
+
+/* Media Queries for screens smaller than 1440px */
+@media (max-width: 1440px) {
+  .close {
+    right: 8%;
+  }
 }

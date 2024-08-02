@@ -6,16 +6,22 @@ function displayModal(photographerName) {
     photographerNameElement.textContent = photographerName;
   }
   modal.style.display = "block";
+  modal.setAttribute("aria-modal", "true");
+  modal.setAttribute("tabindex", "-1");
+  modal.focus();
 }
 
 function closeModal() {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "none";
+  modal.removeAttribute("aria-modal");
+  modal.removeAttribute("tabindex");
 }
 
 // Gestionnaire de soumission du formulaire
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contactForm");
+  const closeButton = document.querySelector("img[alt='Fermer'");
 
   // Vérifie que tous les champs existent
   if (form) {
@@ -39,9 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
           Passez une agréable journée !`
         );
 
-        // Redirection home
-        window.location.href = `./index.html`;
-
         // Alerte de confirmation
         alert("Votre message a été envoyé avec succès !");
       } else {
@@ -50,6 +53,39 @@ document.addEventListener("DOMContentLoaded", () => {
         );
       }
     });
+
+    // Gérer la navigation au clavier
+    const focusableElements = form.querySelectorAll("input, textarea, button");
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+
+    firstElement.addEventListener("keydown", (event) => {
+      if (event.key === "Tab" && event.shiftKey) {
+        event.preventDefault();
+        lastElement.focus();
+      }
+    });
+
+    lastElement.addEventListener("keydown", (event) => {
+      if (event.key === "Tab" && !event.shiftKey) {
+        event.preventDefault();
+        firstElement.focus();
+      }
+    });
+
+    // Ajouter un écouteur global pour fermer la modal avec Échap
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    });
+
+    // Vérifie que le bouton de fermeture existe
+    if (closeButton) {
+      closeButton.addEventListener("click", closeModal);
+    } else {
+      console.error("Le bouton de fermeture n'a pas été trouvé.");
+    }
   } else {
     console.error("Le formulaire n'a pas été trouvé.");
   }

@@ -20,7 +20,7 @@ function photographerTemplate(data) {
     // Création de l'élément photo profil
     const img = document.createElement("img");
     img.setAttribute("src", picture);
-    img.setAttribute("alt", "");
+    img.setAttribute("alt", `Photographie de ${name}`);
 
     // Création de l'élément, affiche le nom
     const h2 = document.createElement("h2");
