@@ -347,6 +347,20 @@ a {
   border-radius: 5px;
   border: none;
 }
+
+.modalContent header img {
+  cursor: pointer;
+  position: absolute;
+  top: 70px;
+  right: 34%;
+}
+
+/* Media Queries for screens smaller than 1440px */
+@media (max-width: 1440px) {
+  .modalContent header img {
+    right: 30%;
+  }
+}
 /* Partie tarification*/
 
 .info-container {
