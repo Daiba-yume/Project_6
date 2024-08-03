@@ -257,6 +257,11 @@ a {
   overflow: auto;
 }
 
+#header-contact {
+  font-size: 70px;
+  font-weight: normal;
+}
+
 .contact-button {
   font-size: 20px;
   font-weight: bold;
