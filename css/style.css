@@ -33,7 +33,7 @@ h1 {
   margin: 100px 100px;
 }
 
-.photographer_section article {
+.photographer_section figure {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,21 +42,21 @@ h1 {
   cursor: pointer;
 }
 
-.photographer_section article h2 {
+.photographer_section figure figcaption {
   font-weight: 400;
   color: #d3573c;
-  font-size: 36px;
+  font-size: 38px;
   margin: 20px 0 0 0;
 }
 
-.photographer_section article img {
+.photographer_section figure img {
   height: 200px;
   width: 200px;
   object-fit: cover;
   border-radius: 100%;
 }
 
-.photographer_section article a {
+.photographer_section figure a {
   color: #901c1c;
   margin: 3px;
   text-decoration: none;
@@ -65,13 +65,17 @@ h1 {
 .location {
   color: #901c1c;
   margin: 0;
-  font-size: 18px;
+  font-size: 20px;
+}
+
+.tagline {
+  font-weight: 400;
 }
 
 .tagline,
 .price {
   margin: 3px 0 0 0;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .price {

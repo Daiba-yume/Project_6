@@ -14,8 +14,8 @@ function photographerTemplate(data) {
     link.classList.add("focus-outline"); // Ajoutez une classe pour le style de focus
 
     // Création de l'élément, qui contient les infos du photographe
-    const article = document.createElement("article");
-    article.setAttribute("data-id", id);
+    const figure = document.createElement("figure");
+    figure.setAttribute("data-id", id);
 
     // Création de l'élément photo profil
     const img = document.createElement("img");
@@ -23,7 +23,7 @@ function photographerTemplate(data) {
     img.setAttribute("alt", `Photographie de ${name}`);
 
     // Création de l'élément, affiche le nom
-    const h2 = document.createElement("h2");
+    const h2 = document.createElement("figcaption");
     h2.textContent = name;
 
     // Ajout de l'image et du nom dans le lien
@@ -31,7 +31,7 @@ function photographerTemplate(data) {
     link.appendChild(h2);
 
     // Création de l'élément, affiche la tagline
-    const pTagline = document.createElement("p");
+    const pTagline = document.createElement("h3");
     pTagline.textContent = tagline;
     pTagline.classList.add("tagline"); // ajout class pour le style
 
@@ -46,12 +46,12 @@ function photographerTemplate(data) {
     pPrice.classList.add("price");
 
     // Ajout des éléments créés à article
-    article.appendChild(link);
-    article.appendChild(pLocation);
-    article.appendChild(pTagline);
-    article.appendChild(pPrice);
+    figure.appendChild(link);
+    figure.appendChild(pLocation);
+    figure.appendChild(pTagline);
+    figure.appendChild(pPrice);
 
-    return article;
+    return figure;
   }
 
   function getUserHeaderDom() {
