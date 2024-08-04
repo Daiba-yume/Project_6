@@ -81,3 +81,15 @@ h1 {
 .price {
   color: #757575;
 }
+
+/* Media Queries for screens smaller than 1440px */
+@media (max-width: 1440px) {
+  .photographer_section {
+    position: relative;
+    left: 2%;
+  }
+  h1 {
+    position: relative;
+    left: 10%;
+  }
+}
