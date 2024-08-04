@@ -35,18 +35,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Assurez-vous que tous les éléments existent
       if (userPrenom && userNom && userEmail && userMessage) {
-        console.log(
-          `Merci de m'avoir contacté,
+        if (
+          userPrenom.value.trim() === "" ||
+          userNom.value.trim() === "" ||
+          userEmail.value.trim() === "" ||
+          userMessage.value.trim() === ""
+        ) {
+          alert(
+            "Veuillez remplir tous les champs avant de soumettre le formulaire."
+          );
+        } else {
+          console.log(
+            `Merci de m'avoir contacté,
           ${userPrenom.value} ${userNom.value},
           Vous trouverez davantage de renseignements à votre adresse email :
           ${userEmail.value},
           Et je prendrais en compte chaque élément de votre message :
           ${userMessage.value}
           Passez une agréable journée !`
-        );
+          );
 
-        // Alerte de confirmation
-        alert("Votre message a été envoyé avec succès !");
+          // Alerte de confirmation
+          alert("Votre message a été envoyé avec succès !");
+          form.reset();
+          closeModal();
+        }
       } else {
         console.error(
           "Tous les éléments du formulaire ne sont pas disponibles."

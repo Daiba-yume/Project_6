@@ -9,7 +9,7 @@
   <link href="./css/photographer.css" rel="stylesheet" type="text/css" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <meta name="description"
     content="Découvrez les travaux d'un photographe professionnel. Explorez des galeries de photos captivantes et contactez-nous pour des séances photo personnalisées." />
   <title>Fisheye - photographe </title>
@@ -79,19 +79,21 @@
         <form id="contactForm">
           <div class="form-contact">
             <label for="first-name">Prénom</label>
-            <input id="first-name" type="text" aria-label="Prénom" aria-required="true" autocomplete="given-name" />
+            <input id="first-name" type="text" aria-label="Prénom" aria-required="true" autocomplete="given-name"
+              required />
           </div>
           <div class="form-contact">
             <label for="last-name">Nom</label>
-            <input id="last-name" type="text" aria-label="Nom" aria-required="true" autocomplete="family-name" />
+            <input id="last-name" type="text" aria-label="Nom" aria-required="true" autocomplete="family-name"
+              required />
           </div>
           <div class="form-contact">
             <label for="email">Email</label>
-            <input id="email" type="email" aria-label="Email" aria-required="true" autocomplete="email" />
+            <input id="email" type="email" aria-label="Email" aria-required="true" autocomplete="email" required />
           </div>
           <div class="form-contact" id="contact-message">
             <label for="message">Votre message</label>
-            <textarea id="message" aria-label="Message" aria-required="true"></textarea>
+            <textarea id="message" aria-label="Message" aria-required="true" required></textarea>
           </div>
           <button class="contact-button" type="submit" aria-label="Envoyer">Envoyer</button>
         </form>
