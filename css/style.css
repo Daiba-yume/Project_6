@@ -86,10 +86,10 @@ h1 {
 @media (max-width: 1440px) {
   .photographer_section {
     position: relative;
-    left: 2%;
+    left: 5%;
   }
   h1 {
     position: relative;
-    left: 10%;
+    left: 18%;
   }
 }

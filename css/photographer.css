@@ -362,6 +362,10 @@ a {
 
 /* Media Queries for screens smaller than 1440px */
 @media (max-width: 1440px) {
+  .photograph-intro h1 {
+    left: 0;
+  }
+
   .modalContent header img {
     right: 30%;
   }
