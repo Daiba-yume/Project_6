@@ -31,7 +31,7 @@ function photographerTemplate(data) {
     link.appendChild(h2);
 
     // Création de l'élément, affiche la tagline
-    const pTagline = document.createElement("h3");
+    const pTagline = document.createElement("p");
     pTagline.textContent = tagline;
     pTagline.classList.add("tagline"); // ajout class pour le style
 
