@@ -1,3 +1,5 @@
+"use strict";
+
 // Récupération des data du fichier JSON.
 
 async function getPhotographers() {

@@ -1,3 +1,5 @@
+"use strict";
+
 // Affiche la modal de contact
 function displayModal(photographerName) {
   const modal = document.getElementById("contact_modal");

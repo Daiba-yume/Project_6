@@ -1,3 +1,5 @@
+"use strict";
+
 let slideIndex = 0; // Index de la slide actuelle
 
 // Fonction pour ouvrir la lightbox et afficher la slide spécifiée
@@ -8,6 +10,14 @@ function openLightbox(id) {
     setSlideIndex(id);
     showSlides();
     document.addEventListener("keydown", handleKeyDown);
+
+    // Avoir le focus sur la vidéo si elle est présente
+    const currentSlide = document.querySelector(
+      ".mySlides:not([style*='display: none']) video"
+    );
+    if (currentSlide) {
+      currentSlide.focus();
+    }
   } else {
     console.error("Modal element not found.");
   }
@@ -58,6 +68,12 @@ function showSlides() {
       slide.style.display = "none";
     });
     slides[slideIndex].style.display = "block";
+
+    // Avoir le focus sur la vidéo si elle est présente dans la slide actuelle
+    const currentSlide = slides[slideIndex].querySelector("video");
+    if (currentSlide) {
+      currentSlide.focus();
+    }
   } else {
     console.error("Modal or slides element not found.");
   }
@@ -71,9 +87,27 @@ function handleKeyDown(event) {
     plusSlides(1);
   } else if (event.key === "Escape") {
     closeLightbox();
+  } else {
+    // Ajout de la gestion des touches pour les vidéos
+    const currentSlide = document.querySelector(
+      ".mySlides:not([style*='display: none']) video"
+    );
+    if (currentSlide) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        if (currentSlide.paused) {
+          currentSlide.play();
+        } else {
+          currentSlide.pause();
+        }
+      }
+      if (event.key === "m") {
+        event.preventDefault();
+        currentSlide.muted = !currentSlide.muted;
+      }
+    }
   }
 }
-
 // Ecouteur d'event pour la fermeture de la lightbox
 document.addEventListener("DOMContentLoaded", () => {
   const closeButton = document.querySelector(".close");

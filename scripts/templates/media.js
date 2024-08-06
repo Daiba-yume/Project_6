@@ -157,6 +157,7 @@ export function mediaFactory(data) {
       mediaVideo.setAttribute("type", "video/mp4");
       mediaVideo.controls = true;
       mediaVideo.setAttribute("alt", `${title}`);
+      mediaVideo.setAttribute("tabindex", "0");
 
       // Ajout des gestionnaires d'événements pour la navigation au clavier
       mediaVideo.addEventListener("keydown", function (e) {
@@ -172,6 +173,11 @@ export function mediaFactory(data) {
           e.preventDefault();
           mediaVideo.muted = !mediaVideo.muted;
         }
+      });
+
+      mediaVideo.addEventListener("focus", function () {
+        // Ajout de l'écouteur d'événement pour les touches Enter et Espace
+        mediaVideo.addEventListener("keydown", handleKeyDown);
       });
 
       mySlides.appendChild(mediaVideo);

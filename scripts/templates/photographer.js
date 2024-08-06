@@ -1,3 +1,5 @@
+"use strict";
+
 // Function qui génère un template de photographe à partir des data
 function photographerTemplate(data) {
   // Extraction des données du photographe à partir de data
