@@ -2,9 +2,10 @@
 
 body {
   font-family: "DM Sans", sans-serif;
-  margin: auto;
+  margin: 0 auto;
   max-width: 1440px;
   padding: 0 40px;
+  overflow-x: hidden;
 }
 
 header {
@@ -28,9 +29,9 @@ h1 {
 
 .photographer_section {
   display: grid;
-  grid-template-columns: repeat(3, 534px);
-  row-gap: 50px;
-  margin: 100px 100px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 90px;
+  margin: 100px 0;
 }
 
 .photographer_section figure {
@@ -82,14 +83,15 @@ h1 {
   color: #757575;
 }
 
-/* Media Queries for screens smaller than 1440px */
-@media (max-width: 1440px) {
+/* Media Queries for screens plus petits que 1367px */
+@media (max-width: 1367px) {
+  body {
+    padding: 0 20px;
+  }
   .photographer_section {
-    position: relative;
-    left: 5%;
+    margin: 100px 0;
   }
   h1 {
-    position: relative;
-    left: 18%;
+    margin-left: 5%;
   }
 }
