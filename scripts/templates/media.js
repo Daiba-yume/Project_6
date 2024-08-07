@@ -32,11 +32,12 @@ export function mediaFactory(data) {
     });
 
     mediaCard.addEventListener("click", function (e) {
-      e.preventDefault();
-      openLightbox(id);
+      // Vérifier que le clic ne vient pas de l'élément vidéo
+      if (e.target.tagName.toLowerCase() !== "video") {
+        e.preventDefault();
+        openLightbox(id);
+      }
     });
-
-    mediaCard.setAttribute("tabindex", "0");
 
     // Création du conteneur de média
     const mediaContainer = document.createElement("div");
@@ -62,6 +63,7 @@ export function mediaFactory(data) {
 
       // Ajout des gestionnaires d'événements pour la navigation au clavier
       mediaVideo.addEventListener("keydown", function (e) {
+        e.stopPropagation();
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
           if (mediaVideo.paused) {
@@ -74,6 +76,10 @@ export function mediaFactory(data) {
           e.preventDefault();
           mediaVideo.muted = !mediaVideo.muted;
         }
+      });
+
+      mediaVideo.addEventListener("click", function (e) {
+        e.stopPropagation(); // Empêche la propagation de l'événement de clic
       });
 
       mediaContainer.appendChild(mediaVideo);
@@ -161,6 +167,7 @@ export function mediaFactory(data) {
 
       // Ajout des gestionnaires d'événements pour la navigation au clavier
       mediaVideo.addEventListener("keydown", function (e) {
+        e.stopPropagation();
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
           if (mediaVideo.paused) {
@@ -175,9 +182,8 @@ export function mediaFactory(data) {
         }
       });
 
-      mediaVideo.addEventListener("focus", function () {
-        // Ajout de l'écouteur d'événement pour les touches Enter et Espace
-        mediaVideo.addEventListener("keydown", handleKeyDown);
+      mediaVideo.addEventListener("click", function (e) {
+        e.stopPropagation(); // Empêche la propagation de l'événement de clic
       });
 
       mySlides.appendChild(mediaVideo);

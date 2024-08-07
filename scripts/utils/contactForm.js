@@ -9,15 +9,32 @@ function displayModal(photographerName) {
   }
   modal.style.display = "block";
   modal.setAttribute("aria-modal", "true");
+  modal.setAttribute("role", "dialog");
   modal.setAttribute("tabindex", "-1");
   modal.focus();
+
+  // Mettre le focus sur le premier élément focusable de la modal
+  const firstFocusableElement = modal.querySelector(
+    "input, textarea, button, [tabindex]:not([tabindex='-1'])"
+  );
+  if (firstFocusableElement) {
+    firstFocusableElement.focus();
+  } else {
+    modal.focus();
+  }
 }
 
 function closeModal() {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "none";
   modal.removeAttribute("aria-modal");
+  modal.removeAttribute("role");
   modal.removeAttribute("tabindex");
+  // Rendre le focus au bouton qui a ouvert la modal
+  const openButton = document.querySelector("[data-open-modal]");
+  if (openButton) {
+    openButton.focus();
+  }
 }
 
 // Gestionnaire de soumission du formulaire

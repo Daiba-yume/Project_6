@@ -50,8 +50,6 @@ function setSlideIndex(id) {
     }
     pos++;
   });
-
-  //slideIndex = index;
 }
 // Fonction pour afficher la slide actuelle
 function showSlides() {
