@@ -41,16 +41,18 @@ function plusSlides(n) {
   showSlides();
 }
 
+// Fonction pour définir l'index de la slide
 function setSlideIndex(id) {
   const listSlides = document.querySelectorAll(".media-card");
   let pos = 0;
   listSlides.forEach((element) => {
     if (element.dataset.id == id) {
-      slideIndex = pos;
+      slideIndex = pos; // Définit l'index de la slide en fonction de l'id
     }
     pos++;
   });
 }
+
 // Fonction pour afficher la slide actuelle
 function showSlides() {
   const modal = document.getElementById("myModal");
