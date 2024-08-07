@@ -46,7 +46,7 @@ h1 {
 .photographer_section figure figcaption {
   font-weight: 400;
   color: #d3573c;
-  font-size: 38px;
+  font-size: 33px;
   margin: 20px 0 0 0;
 }
 
@@ -85,9 +85,6 @@ h1 {
 
 /* Media Queries for screens plus petits que 1367px */
 @media (max-width: 1367px) {
-  body {
-    padding: 0 20px;
-  }
   .photographer_section {
     margin: 100px 0;
   }
