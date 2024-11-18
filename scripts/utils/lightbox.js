@@ -11,6 +11,7 @@ function openLightbox(id) {
     showSlides();
     document.addEventListener("keydown", handleKeyDown);
 
+    modal.focus();
     // Avoir le focus sur la vidéo si elle est présente
     const currentSlide = document.querySelector(
       ".mySlides:not([style*='display: none']) video"

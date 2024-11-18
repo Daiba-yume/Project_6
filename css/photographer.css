@@ -3,6 +3,11 @@
   justify-content: center;
   position: relative;
 }
+
+.logo_photographer {
+  height: 50px;
+}
+
 #contact_modal {
   display: none;
 }
@@ -297,7 +302,7 @@ a {
   cursor: pointer;
   position: absolute;
   top: 70px;
-  right: 30%;
+  right: 35%;
 }
 .modalContent header h2 {
   font-size: 66px;
