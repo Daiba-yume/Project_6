@@ -416,3 +416,33 @@ a {
   font-weight: 600;
   font-size: 25px;
 }
+@media screen and (max-width: 768px) {
+  .headerPhotograph {
+    position: relative;
+    left: 20px;
+  }
+  .photograph-intro h1 {
+    font-size: 50px;
+  }
+  .img-container {
+    position: relative;
+    right: 30px;
+  }
+  .photograph-medias {
+    justify-content: center;
+  }
+  .modalContent {
+    width: 400px;
+    margin-top: unset;
+  }
+  .header-contact {
+    font-size: -webkit-xxx-large;
+  }
+  .modalContent header img {
+    right: 22%;
+    top: 5%;
+  }
+  .form-contact label {
+    font-size: 30px;
+  }
+}

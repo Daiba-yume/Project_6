@@ -92,3 +92,15 @@ h1 {
     margin-left: 5%;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .logo {
+    margin-left: 0;
+  }
+  h1 {
+    margin-right: 0;
+  }
+  .photographer_section {
+    grid-template-columns: none;
+  }
+}
