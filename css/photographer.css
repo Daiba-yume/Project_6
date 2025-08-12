@@ -417,16 +417,28 @@ a {
   font-size: 25px;
 }
 @media screen and (max-width: 768px) {
+  .photograph-header {
+    height: 500px;
+  }
   .headerPhotograph {
-    position: relative;
-    left: 20px;
+    flex-direction: column;
   }
   .photograph-intro h1 {
     font-size: 50px;
   }
+  .photograph-intro h2,
+  p {
+    display: flex;
+    justify-content: center;
+  }
+  .contact_button {
+    width: 150px;
+    font-size: 18px;
+    margin-right: unset;
+  }
   .img-container {
     position: relative;
-    right: 30px;
+    right: unset;
   }
   .photograph-medias {
     justify-content: center;
