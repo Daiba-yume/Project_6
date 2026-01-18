@@ -43,7 +43,6 @@ Fisheye ce projet consiste à créer un site accessible pour une plateforme de p
 
 1. Cloner le repo `https://github.com/Daiba-yume/Project_6.git`
 2. Installer les dépendances : `npm install`
-3. Lancer le projet : `npm run dev`
 
 ---
 
